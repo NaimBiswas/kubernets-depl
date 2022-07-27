@@ -1,17 +1,13 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Service
 metadata:
-  name: posts-depl
+  name: posts
 spec:
-  replicas: 1
+  type: NodePort
   selector:
-    matchLabels:
-      app: posts
-  template:
-    metadata:
-      labels:
-        app: posts
-    spec:
-      containers:
-      - name: posts
-        image: naimbiswas/posts
+    app: posts
+  ports:
+  - name: posts
+    port: 4000
+    protocol: TCP
+    targetPort: 4000
