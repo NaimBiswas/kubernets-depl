@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: posts-srv
 spec:
+  type: NodePort
   selector:
     app: posts
   ports:
